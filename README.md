@@ -7,20 +7,19 @@ from ArduinoSerialTimeFinder import ArduinoSerialTimeFinder
 ```
 &emsp;**2)** Assign the class object to your variable.<br>
 ```python
-yourVariable = ArduinoSerialTimeFinder(arduino, dt)
+yourVariable = ArduinoSerialTimeFinder(arduino)
 ```
 &emsp;or
 ```python
-yourVariable = ArduinoSerialTimeFinder(port, baudrate, dt)
+yourVariable = ArduinoSerialTimeFinder(port, baudrate)
 ```
 >`arduino`: *If you use the Arduino port already, you can assign the serial object here. If you use this variable, port and baudrate are not needed. (arduino=<class 'serial.serialwin32.Serial'>)*<br>
 >`port`: *Arduino port as string. (port="COM6")*<br>
 >`baudrate`: *Arduino baudrate as int. (baudrate=115200)*<br>
->`dt`: *Time difference for new time if time doesn't correct. (sleeptime=0.00001)*<br>
 
 &emsp;**3)** Find the correct time.<br>
 ```python
-yourVariable.findTime(len_serial_data, limit, )
+yourVariable.findTime(len_serial_data, limit, starting_time, dt)
 ```
 >`len_serial_data`: *Length of sended serial data by Arduino as char. (len_serial_data=256)* 
 >>*If your data length in range of 2 values, you can also use list for accept all variables in values range. (len_serial_data=[250, 260]: Accepts correct all values in range(250, 260), 250 and 260 included.)*<br>
@@ -31,11 +30,14 @@ yourVariable.findTime(len_serial_data, limit, )
 >`starting_time`: *Starting time.* <br>
 >>*Default=0* <br>
 
+>`dt`: *Time difference for new time if time doesn't correct. (sleeptime=0.00001)*<br>
+>>*Default=0.00001*
+
 &emsp;**4)** Get the correct time.<br>
 ```python
 yourVariable.getTime()
 ```
->Returns correct time.
+>Returns correct time. Use after `findTime` method.
 <br> 
 
 ## **How it works?**

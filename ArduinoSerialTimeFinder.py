@@ -3,17 +3,16 @@ import time
 import math
 
 class ArduinoSerialTimeFinder:
-    def __init__(self, arduino=None, baudrate=None, port=None, dt=0.00001, limit=None):
+    def __init__(self, arduino=None, baudrate=None, port=None):
         if arduino != "None":
             self.arduino = arduino
         else:
             self.arduino = serial.Serial(baudrate=baudrate, timeout=None, port=port)
-        self.dt = dt
-        self.time_com = 0
 
-    def findTime(self, len_serial_data, limit=-1, starting_time=0):
+    def findTime(self, len_serial_data, limit=-1, starting_time=0, dt=0.00001):
         serial_data = ""
         self.time_com = starting_time
+        self.dt = dt
         is_dataavailable = False
         while limit != 0:
             while self.arduino.in_waiting > 0:
