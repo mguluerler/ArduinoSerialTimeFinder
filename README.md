@@ -1,11 +1,11 @@
 # ArduinoSerialTimeFinder
  Finds your serial data speed of Arduino for regularly data communication.
 ## **How do you use?**
-&emsp;**1)** Import the project. <br>
+### &emsp;**1)** Import the project. <br>
 ```python 
 from ArduinoSerialTimeFinder import ArduinoSerialTimeFinder
 ```
-&emsp;**2)** Assign the class object to your variable.<br>
+### &emsp;**2)** Assign the class object to your variable.<br>
 ```python
 yourVariable = ArduinoSerialTimeFinder(arduino)
 ```
@@ -17,7 +17,7 @@ yourVariable = ArduinoSerialTimeFinder(port, baudrate)
 >`port`: *Arduino port as string. (port="COM6")*<br>
 >`baudrate`: *Arduino baudrate as int. (baudrate=115200)*<br>
 
-&emsp;**3)** Find the correct time.<br>
+### &emsp;**3)** Find the correct time.<br>
 ```python
 yourVariable.findTime(len_serial_data, limit, starting_time, dt)
 ```
@@ -33,7 +33,7 @@ yourVariable.findTime(len_serial_data, limit, starting_time, dt)
 >`dt`: *Time difference for new time if time isn't correct. (sleeptime=0.00001)*<br>
 >>*Default=0.00001*
 
-&emsp;**4)** Get the correct time.<br>
+### &emsp;**4)** Get the correct time.<br>
 ```python
 yourVariable.getTime()
 ```
