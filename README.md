@@ -1,5 +1,5 @@
 # ArduinoSerialTimeFinder
- Finds your Arduino's serial data speed.
+ Finds your serial data speed of Arduino for regularly data communication.
 ## **How do you use?**
 &emsp;**1)** Import the project. <br>
 ```python 
