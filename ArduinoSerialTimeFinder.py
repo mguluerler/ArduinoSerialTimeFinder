@@ -9,11 +9,11 @@ class ArduinoSerialTimeFinder:
         else:
             self.arduino = serial.Serial(baudrate=baudrate, timeout=None, port=port)
         self.dt = dt
-
         self.time_com = 0
 
-    def test(self, len_serial_data, limit=-1):
+    def findTime(self, len_serial_data, limit=-1, starting_time=0):
         serial_data = ""
+        self.time_com = starting_time
         is_dataavailable = False
         while limit != 0:
             while self.arduino.in_waiting > 0:
@@ -45,6 +45,9 @@ class ArduinoSerialTimeFinder:
                 time.sleep(self.time_com)
             except:
                 time.sleep(0)
+
+    def getTime(self):
+        return self.time_com
 
 if __name__ == "__main__":
     x = ArduinoSerialTimeFinder(port="COM6", baudrate=115200)
