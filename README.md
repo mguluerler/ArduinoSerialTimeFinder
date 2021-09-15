@@ -30,7 +30,7 @@ yourVariable.findTime(len_serial_data, limit, starting_time, dt)
 >`starting_time`: *Starting time.* <br>
 >>*Default=0* <br>
 
->`dt`: *Time difference for new time if time doesn't correct. (sleeptime=0.00001)*<br>
+>`dt`: *Time difference for new time if time isn't correct. (sleeptime=0.00001)*<br>
 >>*Default=0.00001*
 
 &emsp;**4)** Get the correct time.<br>
@@ -43,6 +43,6 @@ yourVariable.getTime()
 ## **How it works?**
 &emsp;**1)** You need to know your Arduino will send how many chars. <br>
 &emsp;**2)** When you input this value to `test()` method, program will calculate the waiting time of wanted data for getting them correctly from Arduino. Until Arduino output data and Python input data are equal, the program will add/subtract dt to the time.<br>
-&emsp;**Notice 1)** If you say "Why I need this? I can calculate communication time with my baudrate!", this will not work if you use so much `delay` on your Arduino also if you use libraries for robotic tools (even LiquidCrystal) you can not guess your Arduino delay how much times. I wrote this code for complicated and unpredictable scenarios like this.
-&emsp;**Notice 2)** You need this when you need to get data regularly. If you are not getting data regularly this code is not needed so much. When you get regularly data from Arduino if you set too much sleep in Python you get next data too, if you don't set enough time you can't get even current data, it comes divided to parts.
+>&emsp;**Notice 1)** If you say "Why I need this? I can calculate communication time with my baudrate!", this will not work if you use so much `delay` on your Arduino also if you use libraries for robotic tools (even LiquidCrystal) you can not guess your Arduino delay how much times. I wrote this code for complicated and unpredictable scenarios like this.<br>
+>&emsp;**Notice 2)** You need this when you need to get data regularly. If you are not getting data regularly this code is not needed so much. When you get regularly data from Arduino if you set too much sleep in Python you get next data too, if you don't set enough time you can't get even current data, it comes divided to parts.
 
